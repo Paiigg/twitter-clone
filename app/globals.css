@@ -5,5 +5,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 body {
-  @apply font-["Montserrat"] text-white bg-black;
+  font-family: "Montserrat", sans-serif;
+  @apply text-white bg-black;
 }

@@ -2,17 +2,15 @@ import { Schema, model, models } from "mongoose";
 
 const TweetSchema = new Schema(
   {
-    title: {
+    tweet: {
       type: String,
       required: true,
-      min: 4,
-    },
-    desc: {
-      type: String,
-      required: true,
-      min: 6,
     },
     imageUrl: {
+      type: String,
+      required: true,
+    },
+    imageProfile: {
       type: String,
       required: true,
     },

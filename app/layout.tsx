@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <Provider>
         <body className="max-w-[1225px] mx-auto min-h-screen">
-          <div className="grid grid-cols-4 ">
+          <div className="lg:grid grid-cols-4 ">
             <Navbar />
             <main className="col-span-2">{children}</main>
             <Righbar />

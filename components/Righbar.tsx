@@ -5,5 +5,5 @@ import Link from "next/link";
 
 export default function Righbar() {
   const isUserLogin = true;
-  return <div>RIght</div>;
+  return <div className="hidden lg:block">RIght</div>;
 }

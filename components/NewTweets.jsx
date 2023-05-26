@@ -90,7 +90,7 @@ export default function NewTweets() {
         <div className="w-full">
           <form onSubmit={handleSubmit}>
             <input
-              className="text-slate-400 text-lg bg-transparent focus:outline-none"
+              className="text-slate-400 text-lg bg-transparent focus:outline-none w-full"
               placeholder="What's happening?"
               type="text"
               value={tweet}

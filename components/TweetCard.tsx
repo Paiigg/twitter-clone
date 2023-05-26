@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useSession } from "next-auth/react";
@@ -12,6 +12,8 @@ export default function TweetCard({ datas, id }: { datas: any; id: string }) {
   const [toggle, setToggle] = useState(false);
 
   const router = useRouter();
+  const pathname = usePathname();
+
   const handleDetail = () => {
     router.push(`/tweets/${datas._id}`);
   };
@@ -49,9 +51,9 @@ export default function TweetCard({ datas, id }: { datas: any; id: string }) {
         className="rounded-full object-cover"
         alt="profile"
       />
-      <div>
+      <div className="w-full">
         <div className="flex justify-between items-center">
-          <div>
+          <div onClick={handleDetail} className="w-full">
             <p className="font-semibold">{datas.authorId?.username}</p>
             <p>{datas.tweet}</p>
           </div>
@@ -63,21 +65,27 @@ export default function TweetCard({ datas, id }: { datas: any; id: string }) {
             {toggle ? (
               <div className="absolute rounded-lg bg-[#1DA1F2] p-3 right-0">
                 <button onClick={handleDetail}>Detail</button>
-                <button onClick={() => router.push(`/edit/${datas._id}`)}>
-                  Edit
-                </button>
-                <button onClick={handleDelete}>Delete</button>
+                {pathname === `/tweets/${datas._id}` ? (
+                  <>
+                    <button onClick={() => router.push(`/edit/${datas._id}`)}>
+                      Edit
+                    </button>
+                    <button onClick={handleDelete}>Delete</button>
+                  </>
+                ) : null}
               </div>
             ) : null}
           </div>
         </div>
-        <Image
-          src={datas.imageUrl}
-          width={512}
-          height={200}
-          className="rounded-lg object-cover mb-2"
-          alt="profile"
-        />
+        <div>
+          <Image
+            width={511}
+            height={250}
+            src={datas.imageUrl}
+            className="rounded-lg object-cover lg:object-fill lg:h-[300px] mb-2 "
+            alt="profile"
+          />
+        </div>
         <div>
           <AiOutlineHeart />
           <p></p>

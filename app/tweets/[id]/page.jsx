@@ -5,10 +5,16 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import NewComment from "@/components/NewComment";
+import Comment from "@/components/Comment";
 
 export default function page({ params }) {
   const [detail, setDetail] = useState([]);
+  const [commentText, setCommentText] = useState("");
+  const [comments, setComments] = useState([]);
   const router = useRouter();
+
+  console.log(comments);
 
   useEffect(() => {
     const fetchDetail = async () => {
@@ -26,6 +32,21 @@ export default function page({ params }) {
     fetchDetail();
   }, []);
 
+  useEffect(() => {
+    async function fetchComments() {
+      const res = await fetch(
+        `http://localhost:3000/api/comment/${params.id}`,
+        {
+          cache: "no-store",
+        }
+      );
+      const comment = await res.json();
+
+      setComments(comment);
+    }
+    fetchComments();
+  }, []);
+
   return (
     <div className="lg:border-x min-h-screen">
       <div className="flex items-center pl-4 border-b">
@@ -39,6 +60,21 @@ export default function page({ params }) {
       <div>
         <TweetCard datas={detail} id={params.id} />
       </div>
+      <NewComment
+        commentText={commentText}
+        setCommentText={setCommentText}
+        id={params.id}
+        setComments={setComments}
+      />
+      {comments?.length > 0
+        ? comments.map((comment) => (
+            <Comment
+              key={comment._id}
+              comments={comment}
+              setComments={setComments}
+            />
+          ))
+        : null}
     </div>
   );
 }

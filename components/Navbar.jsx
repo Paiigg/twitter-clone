@@ -133,7 +133,9 @@ export default function Navbar() {
       <div className="fixed bottom-0 m-auto p-4  w-full border-t lg:hidden z-20 bg-black">
         <div className="flex items-center justify-around ">
           <div className="flex items-center space-x-2">
-            <AiFillHome size={20} />
+            <Link href="/">
+              <AiFillHome size={20} />
+            </Link>
           </div>
           <div className="flex items-center space-x-2">
             <BsBellFill size={20} />

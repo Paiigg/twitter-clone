@@ -43,7 +43,7 @@ export default function page({ params }) {
       setComments(comment);
     }
     fetchComments();
-  }, []);
+  }, [comments]);
 
   return (
     <div className="lg:border-x min-h-screen">

@@ -24,7 +24,7 @@ export default function Edit({ params }) {
   useEffect(() => {
     async function fetchTweet() {
       const res = await fetch(
-        `https://twitter-clone-paiigg.vercel.app/tweets/${params.id}`
+        `https://twitter-clone-paiigg.vercel.app/api/tweets/${params.id}`
       );
 
       const data = await res.json();

@@ -35,7 +35,7 @@ export default function page({ params }) {
   useEffect(() => {
     async function fetchComments() {
       const res = await fetch(
-        `https://twitter-clone-paiigg.vercel.app/comment/${params.id}`,
+        `https://twitter-clone-paiigg.vercel.app/api/comment/${params.id}`,
         {
           cache: "no-store",
         }

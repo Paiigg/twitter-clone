@@ -8,7 +8,6 @@ const TweetSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      required: true,
     },
     imageProfile: {
       type: String,

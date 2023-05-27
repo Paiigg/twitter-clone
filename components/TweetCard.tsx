@@ -4,9 +4,17 @@ import { useRouter, usePathname } from "next/navigation";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useSession } from "next-auth/react";
-import Link from "next/link";
+import { BiComment } from "react-icons/bi";
 
-export default function TweetCard({ datas, id }: { datas: any; id: string }) {
+export default function TweetCard({
+  datas,
+  id,
+  comment,
+}: {
+  datas: any;
+  id: string;
+  comment: any[];
+}) {
   const { data: session } = useSession();
 
   const [toggle, setToggle] = useState(false);
@@ -82,13 +90,19 @@ export default function TweetCard({ datas, id }: { datas: any; id: string }) {
             width={511}
             height={250}
             src={datas.imageUrl}
-            className="rounded-lg object-cover lg:object-fill lg:h-[300px] mb-2 "
+            className="rounded-lg object-cover lg:object-fill lg:h-[300px] my-2 "
             alt="profile"
           />
         </div>
-        <div>
-          <AiOutlineHeart />
-          <p></p>
+        <div className="flex items-center gap-10">
+          <div>
+            <AiOutlineHeart />
+            <p></p>
+          </div>
+          <div className="flex items-center gap-2">
+            <BiComment />
+            <p>{comment?.length}</p>
+          </div>
         </div>
       </div>
     </div>

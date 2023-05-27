@@ -30,7 +30,8 @@
     ".next/types/**/*.ts",
     "components/Navbar.jsx",
     "app/api/auth/[...nextauth]/route.js",
-    "app/page.jsx"
+    "app/page.jsx",
+    "components/Righbar.jsx"
   ],
   "exclude": ["node_modules"]
 }

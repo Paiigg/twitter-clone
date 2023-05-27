@@ -6,7 +6,7 @@ export async function GET(req) {
   await connectToDB();
 
   try {
-    const tweets = await Tweets.find({}).limit(16).populate("authorId");
+    const tweets = await Tweets.find({}).populate("authorId");
     return new Response(JSON.stringify(tweets), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify(null), { status: 500 });

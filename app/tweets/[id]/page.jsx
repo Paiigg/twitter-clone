@@ -14,8 +14,6 @@ export default function page({ params }) {
   const [comments, setComments] = useState([]);
   const router = useRouter();
 
-  console.log(comments);
-
   useEffect(() => {
     const fetchDetail = async () => {
       const response = await fetch(
@@ -58,7 +56,7 @@ export default function page({ params }) {
         <h3 className="text-lg p-3">Tweet</h3>
       </div>
       <div>
-        <TweetCard datas={detail} id={params.id} />
+        <TweetCard datas={detail} id={params.id} comment={comments} />
       </div>
       <NewComment
         commentText={commentText}

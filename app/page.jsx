@@ -7,9 +7,11 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import Link from "next/link";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const [providers, setProviders] = useState(null);
   const [dropDown, setDropDown] = useState(false);
@@ -85,8 +87,8 @@ export default function Home() {
       <p className="border-b p-3">Home</p>
       <div>{session?.user ? <NewTweets /> : null}</div>
 
-      {allTweets.map((data) => (
-        <TweetCard datas={data} />
+      {allTweets.map((data, i) => (
+        <TweetCard key={data._id} datas={data} />
       ))}
     </div>
   );

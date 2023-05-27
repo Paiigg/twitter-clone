@@ -20,7 +20,7 @@ export default function Righbar() {
       setUser(data);
     };
     fetchUser();
-  }, [user]);
+  }, []);
   return (
     <div className="hidden  lg:block mx-auto  p-5">
       <p className="font-semibold text-lg">On Twitter</p>

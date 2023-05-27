@@ -14,6 +14,8 @@ export default function page({ params }) {
   const [comments, setComments] = useState([]);
   const router = useRouter();
 
+  console.log({ comments });
+
   useEffect(() => {
     const fetchDetail = async () => {
       const response = await fetch(

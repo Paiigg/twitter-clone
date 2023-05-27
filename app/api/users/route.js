@@ -6,7 +6,7 @@ export async function GET() {
   await connectToDB();
 
   try {
-    const user = await User.find({});
+    const user = await User.find({}).populate("._id");
     return new Response(JSON.stringify(user), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify(null), { status: 500 });

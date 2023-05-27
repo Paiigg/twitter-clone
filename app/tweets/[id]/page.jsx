@@ -14,8 +14,6 @@ export default function page({ params }) {
   const [comments, setComments] = useState([]);
   const router = useRouter();
 
-  console.log({ comments });
-
   useEffect(() => {
     const fetchDetail = async () => {
       const response = await fetch(
@@ -41,11 +39,12 @@ export default function page({ params }) {
         }
       );
       const comment = await res.json();
+      console.log(comment);
 
       setComments(comment);
     }
     fetchComments();
-  }, [comments]);
+  }, []);
 
   return (
     <div className="lg:border-x min-h-screen">

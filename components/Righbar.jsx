@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function Righbar() {
   const [user, setUser] = useState();
 
-  console.log({ user });
   useEffect(() => {
     const fetchUser = async () => {
       const response = await fetch(

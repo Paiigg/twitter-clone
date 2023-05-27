@@ -10,9 +10,12 @@ export default function Comment({ setComments, comments }) {
 
   const handleDeleteComment = async () => {
     try {
-      await fetch(`http://localhost:3000/api/comment/${comments?._id}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://twitter-clone-paiigg.vercel.app/api/comment/${comments?._id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       setComments((prev) => {
         return [...prev].filter((c) => c?._id !== comments?._id);

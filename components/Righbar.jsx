@@ -10,9 +10,12 @@ export default function Righbar() {
   console.log({ user });
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await fetch("http://localhost:3000/api/users", {
-        cache: "no-store",
-      });
+      const response = await fetch(
+        "https://twitter-clone-paiigg.vercel.app/api/users",
+        {
+          cache: "no-store",
+        }
+      );
       const data = await response.json();
 
       setUser(data);

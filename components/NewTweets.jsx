@@ -23,15 +23,18 @@ export default function NewTweets() {
     try {
       const imageUrl = await uploadImage();
 
-      const res = await fetch(`http://localhost:3000/api/tweets`, {
-        method: "POST",
-        body: JSON.stringify({
-          tweet,
-          imageUrl,
-          imageProfile: session?.user.image,
-          authorId: session?.user?.id,
-        }),
-      });
+      const res = await fetch(
+        `https://twitter-clone-paiigg.vercel.app/api/tweets`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            tweet,
+            imageUrl,
+            imageProfile: session?.user.image,
+            authorId: session?.user?.id,
+          }),
+        }
+      );
 
       if (!res.ok) {
         throw new Error("Error occured");

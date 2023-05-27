@@ -17,7 +17,7 @@ export default function page({ params }) {
   useEffect(() => {
     const fetchDetail = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/tweets/${params.id}`,
+        `https://twitter-clone-paiigg.vercel.app/api/tweets/${params.id}`,
         {
           cache: "no-store",
         }
@@ -33,7 +33,7 @@ export default function page({ params }) {
   useEffect(() => {
     async function fetchComments() {
       const res = await fetch(
-        `http://localhost:3000/api/comment/${params.id}`,
+        `https://twitter-clone-paiigg.vercel.app/comment/${params.id}`,
         {
           cache: "no-store",
         }

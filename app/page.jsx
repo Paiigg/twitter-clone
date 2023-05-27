@@ -31,9 +31,12 @@ export default function Home() {
 
   useEffect(() => {
     const fetchTweets = async () => {
-      const response = await fetch("http://localhost:3000/api/tweets", {
-        cache: "no-store",
-      });
+      const response = await fetch(
+        "https://twitter-clone-paiigg.vercel.app/api/tweets",
+        {
+          cache: "no-store",
+        }
+      );
       const data = await response.json();
 
       setAllTweets(data);

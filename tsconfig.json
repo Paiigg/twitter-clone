@@ -31,7 +31,8 @@
     "components/Navbar.jsx",
     "app/api/auth/[...nextauth]/route.js",
     "app/page.jsx",
-    "components/Righbar.jsx"
+    "components/Righbar.jsx",
+    "app/layout.jsx"
   ],
   "exclude": ["node_modules"]
 }

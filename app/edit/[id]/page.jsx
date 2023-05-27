@@ -22,7 +22,7 @@ export default function Edit(ctx) {
   useEffect(() => {
     async function fetchTweet() {
       const res = await fetch(
-        `http://localhost:3000/api/tweets/${ctx.params.id}`
+        `https://twitter-clone-paiigg.vercel.app/tweets/${ctx.params.id}`
       );
 
       const data = await res.json();
@@ -53,7 +53,7 @@ export default function Edit(ctx) {
       }
 
       const res = await fetch(
-        `http://localhost:3000/api/tweets/${ctx.params.id}`,
+        `https://twitter-clone-paiigg.vercel.app/api/tweets/${ctx.params.id}`,
         {
           method: "PUT",
           body: JSON.stringify(body),

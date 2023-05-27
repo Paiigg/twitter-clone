@@ -24,10 +24,13 @@ export default function NewComment({
         text: commentText,
       };
 
-      const res = await fetch(`http://localhost:3000/api/comment`, {
-        method: "POST",
-        body: JSON.stringify(body),
-      });
+      const res = await fetch(
+        `https://twitter-clone-paiigg.vercel.app/api/comment`,
+        {
+          method: "POST",
+          body: JSON.stringify(body),
+        }
+      );
 
       const newComment = await res.json();
 

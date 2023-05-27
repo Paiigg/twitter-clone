@@ -2,10 +2,10 @@ import { connectToDB } from "@/utils/database";
 import Tweets from "@/models/tweets";
 import User from "@/models/user";
 
-export async function GET(req, ctx) {
+export async function GET(req, { params }) {
   await connectToDB();
 
-  const id = ctx.params.id;
+  const id = params.id;
 
   try {
     const tweets = await Tweets.findById(id)
@@ -18,10 +18,10 @@ export async function GET(req, ctx) {
   }
 }
 
-export async function PUT(req, ctx) {
+export async function PUT(req, { params }) {
   await connectToDB();
 
-  const id = ctx.params.id;
+  const id = params.id;
   //   const accessToken = req.headers.get("authorization");
   //   const token = accessToken.split(" ")[1];
 

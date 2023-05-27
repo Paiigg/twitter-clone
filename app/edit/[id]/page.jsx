@@ -16,8 +16,6 @@ export default function Edit({ params }) {
 
   const router = useRouter();
 
-  console.log({ params });
-
   const CLOUD_NAME = "ditrs9gyv";
   const UPLOAD_PRESET = "my_twitter_clone";
 

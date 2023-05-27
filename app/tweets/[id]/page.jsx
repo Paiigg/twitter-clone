@@ -14,8 +14,6 @@ export default function page({ params }) {
   const [comments, setComments] = useState([]);
   const router = useRouter();
 
-  console.log({ params });
-
   useEffect(() => {
     const fetchDetail = async () => {
       const response = await fetch(
@@ -26,7 +24,6 @@ export default function page({ params }) {
       );
       const data = await response.json();
 
-      console.log(data);
       setDetail(data);
     };
     fetchDetail();

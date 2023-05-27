@@ -8,7 +8,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function Edit(ctx) {
+export default function Edit({ params }) {
   const { data: session } = useSession();
   const [tweet, setTweet] = useState("");
   const [photo, setPhoto] = useState("");
@@ -22,7 +22,7 @@ export default function Edit(ctx) {
   useEffect(() => {
     async function fetchTweet() {
       const res = await fetch(
-        `https://twitter-clone-paiigg.vercel.app/tweets/${ctx.params.id}`
+        `https://twitter-clone-paiigg.vercel.app/tweets/${params.id}`
       );
 
       const data = await res.json();

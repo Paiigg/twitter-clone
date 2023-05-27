@@ -37,9 +37,12 @@ export default function TweetCard({
       );
 
       if (confirmModal) {
-        const res = await fetch(`http://localhost:3000/api/tweets/${id}`, {
-          method: "DELETE",
-        });
+        const res = await fetch(
+          `https://twitter-clone-paiigg.vercel.app/api/tweets/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (res.ok) {
           router.push("/");

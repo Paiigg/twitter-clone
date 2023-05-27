@@ -42,7 +42,7 @@ export default function Home() {
       setAllTweets(data);
     };
     fetchTweets();
-  }, [allTweets]);
+  }, []);
 
   return (
     <div className="lg:border-x min-h-screen">
